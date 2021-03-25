@@ -8,3 +8,19 @@ C:\Users\LENOVO\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Windows
 C:\Users\LENOVO\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\LENOVO\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\LENOVO\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AutomaticGraphLayout.dll
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AutomaticGraphLayout.Drawing.dll
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Microsoft.Msagl.GraphViewerGdi.dll
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Microsoft.Msagl.WpfGraphControl.dll
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.page2.resources
