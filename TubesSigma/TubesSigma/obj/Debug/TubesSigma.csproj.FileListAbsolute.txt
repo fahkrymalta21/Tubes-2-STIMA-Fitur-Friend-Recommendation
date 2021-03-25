@@ -1,0 +1,14 @@
+C:\Users\LENOVO\source\repos\TubesSigma\TubesSigma\bin\Debug\TubesSigma.exe.config
+C:\Users\LENOVO\source\repos\TubesSigma\TubesSigma\bin\Debug\TubesSigma.exe
+C:\Users\LENOVO\source\repos\TubesSigma\TubesSigma\bin\Debug\TubesSigma.pdb
+C:\Users\LENOVO\source\repos\TubesSigma\TubesSigma\obj\Debug\TubesSigma.csprojAssemblyReference.cache
+C:\Users\LENOVO\source\repos\TubesSigma\TubesSigma\obj\Debug\TubesSigma.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\source\repos\TubesSigma\TubesSigma\obj\Debug\TubesSigma.exe
+C:\Users\LENOVO\source\repos\TubesSigma\TubesSigma\obj\Debug\TubesSigma.pdb
+C:\Users\LENOVO\Source\Repos\fahkrymalta21\Tubes-2-STIMA-Fitur-Friend-Recommendation\TubesSigma\TubesSigma\bin\Debug\TubesSigma.exe.config
+C:\Users\LENOVO\Source\Repos\fahkrymalta21\Tubes-2-STIMA-Fitur-Friend-Recommendation\TubesSigma\TubesSigma\bin\Debug\TubesSigma.exe
+C:\Users\LENOVO\Source\Repos\fahkrymalta21\Tubes-2-STIMA-Fitur-Friend-Recommendation\TubesSigma\TubesSigma\bin\Debug\TubesSigma.pdb
+C:\Users\LENOVO\Source\Repos\fahkrymalta21\Tubes-2-STIMA-Fitur-Friend-Recommendation\TubesSigma\TubesSigma\obj\Debug\TubesSigma.csprojAssemblyReference.cache
+C:\Users\LENOVO\Source\Repos\fahkrymalta21\Tubes-2-STIMA-Fitur-Friend-Recommendation\TubesSigma\TubesSigma\obj\Debug\TubesSigma.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Source\Repos\fahkrymalta21\Tubes-2-STIMA-Fitur-Friend-Recommendation\TubesSigma\TubesSigma\obj\Debug\TubesSigma.exe
+C:\Users\LENOVO\Source\Repos\fahkrymalta21\Tubes-2-STIMA-Fitur-Friend-Recommendation\TubesSigma\TubesSigma\obj\Debug\TubesSigma.pdb
