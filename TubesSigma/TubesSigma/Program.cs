@@ -9,8 +9,10 @@ namespace TubesSigma
 {
     class GFG : IComparer<string>
     {
-        public int Compare(string x, string y){
-            if (x == null || y == null){
+        public int Compare(string x, string y)
+        {
+            if (x == null || y == null)
+            {
                 return 0;
             }
             // "CompareTo()" method
@@ -42,7 +44,8 @@ namespace TubesSigma
         private int degree;
 
         //  Defaul Contruktor
-        public Program(){
+        public Program()
+        {
             this.NameFile = "XXXXX";
             this.ReadText = File.ReadAllText(this.NameFile);
             string[] readTextList1 = ReadText.Split('\n');
@@ -59,7 +62,8 @@ namespace TubesSigma
             }
         }
         //  User Define Contruktor
-        public Program( string Na) { 
+        public Program(string Na)
+        {
             this.NameFile = Na;
             this.ReadText = File.ReadAllText(this.NameFile);
             string[] readTextList1 = ReadText.Split('\n');
@@ -69,35 +73,41 @@ namespace TubesSigma
                 string[] readTextList2 = readTextList1[i + 1].Split(' ');
                 this.Simpul.Add(readTextList2);
                 string Text = readTextList2[0];
-                if (!IsInAkar(Text)) { this.Graf.Add(Text);}
+                if (!IsInAkar(Text)) { this.Graf.Add(Text); }
                 Text = readTextList2[1];
-                if (!IsInAkar(Text)) { this.Graf.Add(Text);}
+                if (!IsInAkar(Text)) { this.Graf.Add(Text); }
                 //if(readTextList2[0] == readTextList2[1]) { Console.WriteLine("Sama");
             }
-            
+
         }
         // Destruktor
-        ~Program(){}
+        ~Program() { }
 
         // Fungsi Bolean
         public bool IsInAkar(string S) { return this.Graf.Contains(S); }
-        public bool IsAkar(string S, int n=0)
+        public bool IsAkar(string S, int n = 0)
         {
             string Akar = Convert.ToString(this.Simpul[n][0]);
-            if (S == Akar){
+            if (S == Akar)
+            {
                 return true;
-            }else{
-                if(n +1 == GetNSimpul()){
+            }
+            else
+            {
+                if (n + 1 == GetNSimpul())
+                {
                     return false;
-                }else{
+                }
+                else
+                {
                     return false || IsAkar(S, n + 1);
-                } 
+                }
             }
         }
 
         // Fungsi Print
-        public void PrintReadFile(){Console.WriteLine(this.ReadText);}
-        public void PrintAkar(){foreach (string text in GetGraf()){ Console.WriteLine(text); }}
+        public void PrintReadFile() { Console.WriteLine(this.ReadText); }
+        public void PrintAkar() { foreach (string text in GetGraf()) { Console.WriteLine(text); } }
         public List<string> MyFriend(string MyGraf)
         {
             List<string> ListMyFriend = new List<string>();
@@ -121,15 +131,16 @@ namespace TubesSigma
             List<string> IrisanList = new List<string>();
             List<string> ListA = MyFriend(A);
             List<string> ListB = MyFriend(B);
-            if (ListA.Count <= ListB.Count) { 
-                foreach(string text in ListA)
+            if (ListA.Count <= ListB.Count)
+            {
+                foreach (string text in ListA)
                 {
-                    if (ListB.Contains(text)) { IrisanList.Add(text);}
+                    if (ListB.Contains(text)) { IrisanList.Add(text); }
                 }
             }
             else
             {
-                foreach(string text in ListB)
+                foreach (string text in ListB)
                 {
                     if (ListA.Contains(text)) { IrisanList.Add(text); }
                 }
@@ -139,13 +150,15 @@ namespace TubesSigma
         }
 
         // Getter
-        public int GetNSimpul(){return this.NSimpul;}
-        public List<string> GetGraf() {
+        public int GetNSimpul() { return this.NSimpul; }
+        public List<string> GetGraf()
+        {
             // Mengembalikan list graf dengan urut A - Z
             GFG gg = new GFG();
             List<string> list = this.Graf;
             list.Sort(gg);
-            return list; }
+            return list;
+        }
         public List<string[]> GetSimpul() { return this.Simpul; }
 
 
@@ -155,16 +168,18 @@ namespace TubesSigma
             List<string> TemanA = MyFriend(GrafAkun);
             List<string> RelasiTemanA = new List<string>();
             SortedList<string, string> RecomFriends = new SortedList<string, string>(new DecendingComparer<int>());
-            foreach ( string text in TemanA)
+            foreach (string text in TemanA)
             {
                 List<string> temanText = MyFriend(text);
-                foreach(string teman in temanText){
-                    if(!RelasiTemanA.Contains(teman) && !TemanA.Contains(teman) && teman != GrafAkun) { RelasiTemanA.Add(teman); }
+                foreach (string teman in temanText)
+                {
+                    if (!RelasiTemanA.Contains(teman) && !TemanA.Contains(teman) && teman != GrafAkun) { RelasiTemanA.Add(teman); }
                 }
             }
-            
-            foreach (string text in RelasiTemanA){
-                
+
+            foreach (string text in RelasiTemanA)
+            {
+
                 List<string> irisan = IrisanFreind(GrafAkun, text);
                 //Console.Write("{0} memiliki {1} teman yang sama : ",text, irisan.Count);
                 string Key = Convert.ToString(irisan.Count);
@@ -173,14 +188,17 @@ namespace TubesSigma
                 foreach (string teman in irisan) { Val += (teman + " "); }
                 RecomFriends.Add(Key, Val);
             }
-            for (int i = 0; i < RecomFriends.Count; i++) {
+            for (int i = 0; i < RecomFriends.Count; i++)
+            {
                 string[] angka = RecomFriends.Keys[i].Split(' ');
-                Console.Write("{0}\n{1} teman yang sama : ",angka[1],angka[0]);
+                Console.Write("{0}\n{1} teman yang sama : ", angka[1], angka[0]);
                 Console.WriteLine(RecomFriends.Values[i]);
                 Console.WriteLine();
             }
         }
-        public void ExploreFriendsBFS(string AkunAsal, string AkunTujuan) {
+        // BFS EXPLORE
+        public void ExploreFriendsBFS(string AkunAsal, string AkunTujuan)
+        {
 
             List<string> ListFriend = new List<string>();
             List<string> ListKujungi = new List<string>();
@@ -189,7 +207,7 @@ namespace TubesSigma
             ListFriend = MyFriend(AkunAsal);
             ListFriend.Sort(gg);
             //Console.WriteLine(ListFriend[0]);
-            
+
             if (ListFriend.Contains(AkunTujuan)) { Status = true; ListKujungi.Add(AkunTujuan); }
             ListKujungi.Add(AkunAsal);
             while (!ListKujungi.Contains(AkunTujuan) && !Status)
@@ -197,7 +215,7 @@ namespace TubesSigma
                 //Console.WriteLine("while");
                 foreach (string text in ListFriend)
                 {
-                    if(text != AkunTujuan)
+                    if (text != AkunTujuan)
                     {
                         ListKujungi.Add(text);
                     }
@@ -213,14 +231,14 @@ namespace TubesSigma
                     Status = true;
                     break;
                 }
-                
-                List<string> ListCopy =  ListFriend.GetRange(0,ListFriend.Count);
+
+                List<string> ListCopy = ListFriend.GetRange(0, ListFriend.Count);
                 ListFriend.Clear();
                 //Console.WriteLine(ListCopy[0]);
-                foreach ( string text in ListCopy)
+                foreach (string text in ListCopy)
                 {
                     List<string> List2 = MyFriend(text);
-                    foreach( string text2 in List2)
+                    foreach (string text2 in List2)
                     {
                         //Console.WriteLine(text2);
                         if (!ListKujungi.Contains(text2))
@@ -230,18 +248,27 @@ namespace TubesSigma
                         }
                     }
                 }
-                
+
                 ListFriend.Sort(gg);
                 //Console.WriteLine(ListFriend[0]);
                 if (!ListFriend.Any()) { Status = true; }
 
             }
-            if(ListKujungi.Contains(AkunTujuan))
+            if (ListKujungi.Contains(AkunTujuan))
             {
-                ListFriend = MyFriend(AkunTujuan);
+                //Console.WriteLine("Ada");
+                string Awal = AkunAsal;
+                string Akhir = AkunTujuan;
+                if (string.Compare(AkunAsal, AkunTujuan) > 0)
+                {
+                    Awal = AkunTujuan;
+                    Akhir = AkunAsal;
+                }
+                ListFriend = MyFriend(Akhir);
                 ListFriend.Sort(gg);
                 this.ListExplore.Add(AkunTujuan);
-                while(ListFriend[0] != AkunAsal)
+
+                while (ListFriend[0] != Awal)
                 {
                     string TambahGraf = ListFriend[0];
                     this.ListExplore.Add(TambahGraf);
@@ -251,26 +278,33 @@ namespace TubesSigma
                 }
                 this.ListExplore.Add(AkunAsal);
                 this.ListExplore.Sort(gg);
+                if (string.Compare(AkunAsal, AkunTujuan) > 0)
+                {
+                    this.ListExplore.Reverse();
+                }
                 this.degree = this.ListExplore.Count - 2;
                 Console.WriteLine(this.degree);
-                foreach(string text in this.ListExplore)
+                foreach (string text in this.ListExplore)
                 {
                     if (text != AkunTujuan) { Console.Write("{0} --- ", text); }
-                    else { Console.Write("{0}", text); }
+                    else { Console.Write("{0}\n", text); }
                 }
             }
             else
             {
                 Console.WriteLine("Tidak ada jalur koneksi yang tersedia\nAnda harus memulai koneksi baru itu sendiri.");
             }
+            ListFriend.Clear();
         }
-        
+
         static void Main(string[] args)
         {
             string Nama = "C:/Users/LENOVO/OneDrive/Documents/DataTubes2Stigma/File1.txt";
             Program P = new Program(Nama);
-            P.ExploreFriendsBFS("A","F");
-            
+
+            P.ExploreFriendsBFS("H", "A");
+            P.FriendRecomBFS("H");
+
 
         }
     }
