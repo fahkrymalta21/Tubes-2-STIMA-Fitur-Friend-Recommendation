@@ -297,15 +297,53 @@ namespace TubesSigma
             ListFriend.Clear();
         }
 
+        // Fungsi DFS
+        public List<List<string>> FriendRecomDFS(string GrafAkun, int currDepth, int depth, List<List<string>> list_lintasan)
+        {
+            List<string> TemanA = MyFriend(GrafAkun);
+            list_lintasan.Add( new List<string> { GrafAkun });
+            if (currDepth == depth) {
+                // Jika simpul asal dan tujuan sama maka akan berhenti
+                return list_lintasan;
+            }
+            if (TemanA.Count == 0) {
+                // Jika string/simpul tidak ada di list input maka menghasilkan list kosong
+                return new List<List<string>>();
+            }
+            List<List<string>> list_semua_lintasan = new List<List<string>>();
+            foreach (string simpul in TemanA) {
+                if (!list_lintasan[currDepth].Contains(simpul)) {
+                    List<List<string>> list_semua_lintasan2 = FriendRecomDFS(simpul, currDepth+1, depth, list_lintasan);
+                    foreach (List<string> list_lintasan2 in list_semua_lintasan2) {
+                        list_semua_lintasan.Add( list_lintasan2 );
+                    }
+                }
+            }
+            return list_semua_lintasan;
+        }
+
         static void Main(string[] args)
         {
-            string Nama = "C:/Users/LENOVO/OneDrive/Documents/DataTubes2Stigma/File1.txt";
+            string Nama = "C:/Users/ferdy/Documents/File1.txt";
             Program P = new Program(Nama);
 
-            P.ExploreFriendsBFS("H", "A");
-            P.FriendRecomBFS("H");
-
-
+            //P.ExploreFriendsBFS("H1", "A1");
+            P.FriendRecomBFS("H1");
+            
+            List<List<string>> list = new List<List<string>>();
+            /*
+            for (int i = 0; i < P.FriendRecomDFS("H1", 0, 0, list).Count; i++)
+            {
+                Console.WriteLine(P.FriendRecomDFS("H1", 0, 0, list)[i][0]);
+            }
+            
+            for (int i = 0; i < P.MyFriend("H1").Count; i++)
+            {
+                Console.WriteLine(P.MyFriend("H1")[i]);
+            }
+            */
+            Console.WriteLine(P.FriendRecomDFS("H1", 0, 2, list).Count);
+            Console.ReadKey();
         }
     }
 }
