@@ -30,67 +30,69 @@ namespace WindowsFormsApp1
 
             openFileDialog1.Filter = "*.txt|*.txt|All files (*.*)|*.*";
             openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
-            openFileDialog1.Title = "Masukkan file eksternal";
+            openFileDialog1.Title = "Masukkan file input";
 
             // Show file dialog
-            DialogResult result = openFileDialog1.ShowDialog();
-            button1.Text = openFileDialog1.SafeFileName;
-            namafile = openFileDialog1.FileName;
-            StrategiAlgoritma S = new StrategiAlgoritma(openFileDialog1.FileName);
-
-            List<string> semua = new List<string>();
-            using (StreamReader sr = new StreamReader(openFileDialog1.OpenFile()))
+            DialogResult dr = openFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
             {
-                string line = sr.ReadLine();
-                if (line == null || line == "0")
+                button1.Text = openFileDialog1.SafeFileName;
+                namafile = openFileDialog1.FileName;
+                StrategiAlgoritma S = new StrategiAlgoritma(openFileDialog1.FileName);
+
+                List<string> semua = new List<string>();
+                using (StreamReader sr = new StreamReader(openFileDialog1.OpenFile()))
                 {
-                    MessageBox.Show("File is empty", "Warning!!!");
-                }
-                else
-                {
-                    comboBox1.Items.Clear();
-                    comboBox2.Items.Clear();
-                    while (sr.Peek() >= 0)
+                    string line = sr.ReadLine();
+                    if (line == null || line == "0")
                     {
-                        line = sr.ReadLine(); // Read file line by line
-                        string[] cur_line = line.Split(' ');
-                        graph.AddEdge(cur_line[0], cur_line[1]).Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
-                        int i = 0;
-                        bool sama = false;
-                        while(i < semua.Count && sama == false)
+                        MessageBox.Show("File is empty", "Warning!!!");
+                    }
+                    else
+                    {
+                        comboBox1.Items.Clear();
+                        comboBox2.Items.Clear();
+                        while (sr.Peek() >= 0)
                         {
-                            if (semua.Contains(cur_line[0]))
+                            line = sr.ReadLine(); // Read file line by line
+                            string[] cur_line = line.Split(' ');
+                            graph.AddEdge(cur_line[0], cur_line[1]).Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
+                            int i = 0;
+                            bool sama = false;
+                            while (i < semua.Count && sama == false)
                             {
-                                sama = true;
-                            } i++;
+                                if (semua.Contains(cur_line[0]))
+                                {
+                                    sama = true;
+                                }
+                                i++;
+                            }
+                            if (sama == false)
+                            {
+                                semua.Add(cur_line[0]);
+
+                            }
                         }
-                        if (sama == false)
+                        List<string> ListCombo = S.GetGraf();
+                        foreach (string text in ListCombo)
                         {
-                            semua.Add(cur_line[0]);
-                            
+                            comboBox1.Items.Add(text);
+                            comboBox2.Items.Add(text);
                         }
                     }
-                    List<string> ListCombo = S.GetGraf();
-                    foreach(string text in ListCombo)
-                    {
-                        comboBox1.Items.Add(text);
-                        comboBox2.Items.Add(text);
-                    }
-                    
-
                 }
+                viewer.Graph = graph;
+                panel1.SuspendLayout();
+                viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                panel1.Controls.Add(viewer);
+                panel1.ResumeLayout();
+
+                // Masukkan Daftar Akun A
+                this.Controls.Add(comboBox1);
+
+                // Masukkan Daftar Akun B
+                this.Controls.Add(comboBox2);
             }
-            viewer.Graph = graph;
-            panel1.SuspendLayout();
-            viewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel1.Controls.Add(viewer);
-            panel1.ResumeLayout();
-
-            // Masukkan Daftar Akun A
-            this.Controls.Add(comboBox1);
-
-            // Masukkan Daftar Akun B
-            this.Controls.Add(comboBox2);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -167,22 +169,59 @@ namespace WindowsFormsApp1
                 listView1.Items.Clear();
                 button2.ForeColor = System.Drawing.Color.Green;
                 StrategiAlgoritma S = new StrategiAlgoritma(namafile);
-                label6.Text = "Friend Recommendation " + comboBox1.SelectedItem.ToString();
-                List<string> listteman = S.FriendRecomBFS(comboBox1.SelectedItem.ToString());
-                foreach (string text in listteman)
+                if (comboBox1.SelectedItem == null && comboBox2.SelectedItem == null)
                 {
-                    listView1.Items.Add(text);
-
+                    MessageBox.Show("Pilih akun dulu!", "Warning!");
                 }
-                if (comboBox2.SelectedItem != null)
+                else if (comboBox1.SelectedItem != null && comboBox2.SelectedItem == null)
                 {
-                    label5.Text = "Explore Friend " + comboBox1.SelectedItem.ToString() + " with " + comboBox2.SelectedItem.ToString();
-                    textBox3.Text = S.ExploreFriendsBFS(comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
-                    textBox3.Visible = true;
-                    label5.Visible = true;
+                    label6.Text = "Friend Recommendation " + comboBox1.SelectedItem.ToString();
+                    List<string> listteman = S.FriendRecomBFS(comboBox1.SelectedItem.ToString());
+                    foreach (string text in listteman)
+                    {
+                        listView1.Items.Add(text);
+                    }
+                    label6.Visible = true;
+                    if (listView1.Items == null)
+                    {
+                        listView1.Items.Add("Tidak ada mutual firend");
+                    }
+                    listView1.Visible = true;
                 }
-                label6.Visible = true;
-                listView1.Visible = true;
+                else if (comboBox1.SelectedItem == null && comboBox2.SelectedItem != null)
+                {
+                    MessageBox.Show("Pilih akun dulu!", "Warning!");
+                }
+                else
+                {
+                    label6.Text = "Friend Recommendation " + comboBox1.SelectedItem.ToString();
+                    List<string> listteman = S.FriendRecomBFS(comboBox1.SelectedItem.ToString());
+                    foreach (string text in listteman)
+                    {
+                        listView1.Items.Add(text);
+                    }
+                    if (comboBox1.SelectedItem.ToString() != comboBox2.SelectedItem.ToString())
+                    {
+                        label5.Text = "Explore Friend " + comboBox1.SelectedItem.ToString() + " with " + comboBox2.SelectedItem.ToString();
+                        textBox3.Text = S.ExploreFriendsBFS(comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
+                        textBox3.Visible = true;
+                        label5.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tidak bisa memilih akun yang sama!", "Warning!");
+                        label5.Text = "Explore Friend " + comboBox1.SelectedItem.ToString() + " with " + comboBox2.SelectedItem.ToString();
+                        textBox3.Text = "Tidak ada karena kedua akun sama";
+                        textBox3.Visible = true;
+                        label5.Visible = true;
+                    }
+                    label6.Visible = true;
+                    if (listView1.Items == null)
+                    {
+                        listView1.Items.Add("Tidak ada mutual firend");
+                    }
+                    listView1.Visible = true;
+                }
             }
         }
 
