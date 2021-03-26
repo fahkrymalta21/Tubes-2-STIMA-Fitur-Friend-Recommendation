@@ -163,10 +163,11 @@ namespace WindowsFormsApp1
 
 
         // Fungsi BFS
-        public void FriendRecomBFS(string GrafAkun)
+        public List<string> FriendRecomBFS(string GrafAkun)
         {
             List<string> TemanA = MyFriend(GrafAkun);
             List<string> RelasiTemanA = new List<string>();
+            List<string> result = new List<string>();
             SortedList<string, string> RecomFriends = new SortedList<string, string>(new DecendingComparer<int>());
             foreach (string text in TemanA)
             {
@@ -190,11 +191,15 @@ namespace WindowsFormsApp1
             }
             for (int i = 0; i < RecomFriends.Count; i++)
             {
+                string kata = "";
                 string[] angka = RecomFriends.Keys[i].Split(' ');
+                kata += angka[1] + " memiliki " + angka[0] + " teman yang sama : " + RecomFriends.Values[i];
                 Console.Write("{0}\n{1} teman yang sama : ", angka[1], angka[0]);
                 Console.WriteLine(RecomFriends.Values[i]);
                 Console.WriteLine();
+                result.Add(kata);
             }
+            return result;
         }
         // BFS EXPLORE
         public string ExploreFriendsBFS(string AkunAsal, string AkunTujuan)

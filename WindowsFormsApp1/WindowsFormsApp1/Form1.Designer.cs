@@ -50,7 +50,7 @@ namespace WindowsFormsApp1
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -192,7 +192,7 @@ namespace WindowsFormsApp1
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.button2.ForeColor = System.Drawing.Color.SteelBlue;
+            this.button2.ForeColor = System.Drawing.Color.Red;
             this.button2.Location = new System.Drawing.Point(875, 75);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(132, 58);
@@ -238,7 +238,7 @@ namespace WindowsFormsApp1
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox4);
+            this.panel2.Controls.Add(this.listView1);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.textBox3);
@@ -262,20 +262,23 @@ namespace WindowsFormsApp1
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(0, 174);
+            this.label6.Location = new System.Drawing.Point(3, 174);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(224, 25);
+            this.label6.Size = new System.Drawing.Size(0, 25);
             this.label6.TabIndex = 2;
-            this.label6.Text = "Friend Recommendation";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // textBox4
+            // listView1
             // 
-            this.textBox4.Location = new System.Drawing.Point(0, 202);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(482, 190);
-            this.textBox4.TabIndex = 3;
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(3, 202);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(482, 190);
+            this.listView1.TabIndex = 3;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.Visible = false;
             // 
             // Form1
             // 
@@ -331,9 +334,9 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 
