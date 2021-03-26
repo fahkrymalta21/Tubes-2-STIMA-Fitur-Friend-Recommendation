@@ -326,5 +326,121 @@ namespace WindowsFormsApp1
             ListFriend.Clear();
             return result;
         }
+        //ExploreFriendsDFS
+        public void DFS(string akunAsal, string akunTujuan, List<string> listKunjungan)
+        {
+            
+            listKunjungan.Add(akunAsal);
+ 
+            // Recur for all the vertices
+            // adjacent to this vertex
+            List<int> newList = MyFriend(akunAsal);
+            foreach(var n in newList)
+            {
+                if (!listKunjungan.Contains(n) && n != akunTujuan)
+                {
+                    DFS(n, listKunjungan);
+                }
+                else if (n == akunTujuan)
+                {
+                    listKunjungan.Add(n)
+                    break
+                }
+            }
+    
+        }
+
+        public void ExploreFriendsDFS(string akunAsal, string akunTujuan)
+        {
+            List<string> listFriend = new List<string>();
+            List<string> listKunjungan = new List<string>();
+            if(akunAsal == akunTujuan)
+            {
+                return "Apakah " + AkunTujuan + " berteman dengan dirinya sendiri?";
+            }
+            GFG gg = new GFG();
+            DFS(akunAsal, akunTujuan, listKunjungan);
+
+            /*bool status = false;
+            
+            listFriend = MyFriend(akunAsal);
+            listFriend.Sort(gg);
+
+            if (listFriend.Contains(akunTujuan))
+            {
+                status = true;
+                listKunjungan.Add(akunTujuan);
+            }
+            listKunjungan.Add(akunAsal);
+            while (!listKunjungan.Contains(akunTujuan) && !status)
+            {
+                string akunSekarang = listFriend[0];
+                if (akunSekarang != akunTujuan)
+                {
+                    listKunjungan.Add(akunSekarang);
+                    listFriend.Clear();
+                    listFriend = MyFriend(akunSekarang);
+                    if (!listFriend[0].Any())
+                    {
+
+                    }
+                }
+                
+            }*/
+            if (listKunjungan.Contains(akunTujuan))
+            {
+                //Console.WriteLine("Ada");
+                string awal = akunAsal;
+                string akhir = akunTujuan;
+                if (string.Compare(akunAsal, akunTujuan) > 0)
+                {
+                    awal = akunTujuan;
+                    akhir = akunAsal;
+                }
+                listFriend = MyFriend(akhir);
+                listFriend.Sort(gg);
+                this.ListExplore.Add(akunTujuan);
+
+                while (listFriend[0] != awal)
+                {
+                    string TambahGraf = listFriend[0];
+                    this.ListExplore.Add(TambahGraf);
+                    listFriend.Clear();
+                    listFriend = MyFriend(TambahGraf);
+                    listFriend.Sort(gg);
+                }
+                this.ListExplore.Add(akunAsal);
+                this.ListExplore.Sort(gg);
+                if (string.Compare(akunAsal, akunTujuan) > 0)
+                {
+                    this.ListExplore.Reverse();
+                }
+                this.degree = this.ListExplore.Count - 2;
+                if (this.degree == 0)
+                {
+                    result += " Sudah berteman.  ( ";
+                }
+                else
+                {
+                    result += "Derajat pertemanan "+ this.degree + ". (";
+
+                }
+                
+                Console.WriteLine(this.degree);
+                foreach (string text in this.ListExplore)
+                {
+                    if (text != AkunTujuan) { 
+                        Console.Write("{0} --- ", text);
+                        result += text + " <---> ";
+                    }
+                    else { Console.Write("{0}\n", text); result += text + " )"; }
+                }
+            }
+            else
+            {
+                result += "Tidak ada jalur koneksi yang tersedia\nAnda harus memulai koneksi baru itu sendiri.";
+                Console.WriteLine("Tidak ada jalur koneksi yang tersedia\nAnda harus memulai koneksi baru itu sendiri.");
+            }
+        }
     }
 }
