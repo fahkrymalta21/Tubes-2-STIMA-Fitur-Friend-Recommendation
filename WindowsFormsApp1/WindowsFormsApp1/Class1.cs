@@ -219,8 +219,9 @@ namespace WindowsFormsApp1
             //Console.WriteLine(ListFriend[0]);
 
             // Kasus derajat 0
-            if (ListFriend.Contains(AkunTujuan)) { Status = true; ListKujungi.Add(AkunTujuan); }
             ListKujungi.Add(AkunAsal);
+            if (ListFriend.Contains(AkunTujuan)) { Status = true; ListKujungi.Add(AkunTujuan); }
+            
             // pencarian derajat lebih
             while (!ListKujungi.Contains(AkunTujuan) && !Status)
             {
@@ -228,9 +229,11 @@ namespace WindowsFormsApp1
                 // penanda dikunjungi
                 foreach (string text in ListFriend)
                 {
+                    
                     if (text != AkunTujuan)
                     {
                         ListKujungi.Add(text);
+                       
                     }
                     else
                     {
@@ -239,7 +242,7 @@ namespace WindowsFormsApp1
                     }
                     //Console.WriteLine(text);
                 }
-                // Pengecekan apahah dah dikunjungi
+                // Pengecekan apakah dah dikunjungi
                 if (ListKujungi.Contains(AkunTujuan))
                 {
                     Status = true;
@@ -254,6 +257,7 @@ namespace WindowsFormsApp1
                     List<string> List2 = MyFriend(text);
                     foreach (string text2 in List2)
                     {
+                     
                         //Console.WriteLine(text2);
                         if (!ListKujungi.Contains(text2))
                         {
@@ -281,9 +285,9 @@ namespace WindowsFormsApp1
                 }
                 ListFriend = MyFriend(Akhir);
                 ListFriend.Sort(gg);
-                this.ListExplore.Add(AkunTujuan);
+                //this.ListExplore.Add(AkunTujuan);
 
-                while (ListFriend[0] != Awal)
+                while (!ListFriend.Contains(Awal))
                 {
                     string TambahGraf = ListFriend[0];
                     this.ListExplore.Add(TambahGraf);
@@ -291,13 +295,13 @@ namespace WindowsFormsApp1
                     ListFriend = MyFriend(TambahGraf);
                     ListFriend.Sort(gg);
                 }
-                this.ListExplore.Add(AkunAsal);
+                //this.ListExplore.Add(AkunAsal);
                 this.ListExplore.Sort(gg);
                 if (string.Compare(AkunAsal, AkunTujuan) > 0)
                 {
                     this.ListExplore.Reverse();
                 }
-                this.degree = this.ListExplore.Count - 2;
+                this.degree = this.ListExplore.Count;
                 if (this.degree == 0)
                 {
                     result += " Sudah berteman.  ( ";
@@ -307,16 +311,19 @@ namespace WindowsFormsApp1
                     result += "Derajat pertemanan "+ this.degree + ". (";
 
                 }
-                
+                result += AkunAsal + " <---> ";
                 Console.WriteLine(this.degree);
                 foreach (string text in this.ListExplore)
                 {
+                    result +=  text + " <---> ";
+                    /*
                     if (text != AkunTujuan) { 
                         Console.Write("{0} --- ", text);
-                        result += text + " <---> ";
+                        
                     }
-                    else { Console.Write("{0}\n", text); result += text + " )"; }
+                    else { Console.Write("{0}\n", text); result += text + " )"; } */
                 }
+                result += AkunTujuan + " )";
             }
             else
             {
@@ -326,6 +333,8 @@ namespace WindowsFormsApp1
             ListFriend.Clear();
             return result;
         }
+
+        /*
         //ExploreFriendsDFS
         public void DFS(string akunAsal, string akunTujuan, List<string> listKunjungan)
         {
@@ -334,7 +343,7 @@ namespace WindowsFormsApp1
  
             // Recur for all the vertices
             // adjacent to this vertex
-            List<int> newList = MyFriend(akunAsal);
+            List<string> newList = MyFriend(akunAsal);
             foreach(var n in newList)
             {
                 if (!listKunjungan.Contains(n) && n != akunTujuan)
@@ -343,12 +352,14 @@ namespace WindowsFormsApp1
                 }
                 else if (n == akunTujuan)
                 {
-                    listKunjungan.Add(n)
-                    break
+                    listKunjungan.Add(n);
+                    break;
                 }
             }
     
         }
+
+        
 
         public void ExploreFriendsDFS(string akunAsal, string akunTujuan)
         {
@@ -386,7 +397,7 @@ namespace WindowsFormsApp1
                     }
                 }
                 
-            }*/
+            }*
             if (listKunjungan.Contains(akunTujuan))
             {
                 //Console.WriteLine("Ada");
@@ -437,10 +448,10 @@ namespace WindowsFormsApp1
                 }
             }
             else
-            {
+            { MEET?
                 result += "Tidak ada jalur koneksi yang tersedia\nAnda harus memulai koneksi baru itu sendiri.";
                 Console.WriteLine("Tidak ada jalur koneksi yang tersedia\nAnda harus memulai koneksi baru itu sendiri.");
             }
-        }
+        } */
     }
 }

@@ -167,25 +167,23 @@ namespace WindowsFormsApp1
                 listView1.Items.Clear();
                 button2.ForeColor = System.Drawing.Color.Green;
                 StrategiAlgoritma S = new StrategiAlgoritma(namafile);
-                label5.Text = "Explore Friend " + comboBox1.SelectedItem.ToString() + " with " + comboBox2.SelectedItem.ToString();
                 label6.Text = "Friend Recommendation " + comboBox1.SelectedItem.ToString();
-                textBox3.Text = S.ExploreFriendsBFS(comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
                 List<string> listteman = S.FriendRecomBFS(comboBox1.SelectedItem.ToString());
                 foreach (string text in listteman)
                 {
                     listView1.Items.Add(text);
 
                 }
-                textBox3.Visible = true;
-                label5.Visible = true;
+                if (comboBox2.SelectedItem != null)
+                {
+                    label5.Text = "Explore Friend " + comboBox1.SelectedItem.ToString() + " with " + comboBox2.SelectedItem.ToString();
+                    textBox3.Text = S.ExploreFriendsBFS(comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
+                    textBox3.Visible = true;
+                    label5.Visible = true;
+                }
                 label6.Visible = true;
                 listView1.Visible = true;
-                
-                
-                
-
             }
-            
         }
 
         private void panel2_Paint_1(object sender, PaintEventArgs e)
