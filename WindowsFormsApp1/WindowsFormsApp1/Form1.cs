@@ -167,7 +167,7 @@ namespace WindowsFormsApp1
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -212,6 +212,64 @@ namespace WindowsFormsApp1
                     {
                         label5.Text = "Explore Friend " + comboBox1.SelectedItem.ToString() + " with " + comboBox2.SelectedItem.ToString();
                         textBox3.Text = S.ExploreFriendsBFS(comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
+                        textBox3.Visible = true;
+                        label5.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tidak bisa memilih akun yang sama!", "Warning!");
+                        label5.Text = "Explore Friend " + comboBox1.SelectedItem.ToString() + " with " + comboBox2.SelectedItem.ToString();
+                        textBox3.Text = "Tidak ada karena kedua akun sama";
+                        textBox3.Visible = true;
+                        label5.Visible = true;
+                    }
+                    label6.Visible = true;
+                    if (listView1.Items == null)
+                    {
+                        listView1.Items.Add("Tidak ada mutual firend");
+                    }
+                    listView1.Visible = true;
+                }
+            } else if (radioButton1.Checked)
+            {
+                listView1.Items.Clear();
+                button2.ForeColor = System.Drawing.Color.Green;
+                StrategiAlgoritma S = new StrategiAlgoritma(namafile);
+                if (comboBox1.SelectedItem == null && comboBox2.SelectedItem == null)
+                {
+                    MessageBox.Show("Pilih akun dulu!", "Warning!");
+                }
+                else if (comboBox1.SelectedItem != null && comboBox2.SelectedItem == null)
+                {
+                    label6.Text = "Friend Recommendation " + comboBox1.SelectedItem.ToString();
+                    List<string> listteman = S.FriendRecomBFS(comboBox1.SelectedItem.ToString());
+                    foreach (string text in listteman)
+                    {
+                        listView1.Items.Add(text);
+                    }
+                    label6.Visible = true;
+                    if (listView1.Items == null)
+                    {
+                        listView1.Items.Add("Tidak ada mutual firend");
+                    }
+                    listView1.Visible = true;
+                }
+                else if (comboBox1.SelectedItem == null && comboBox2.SelectedItem != null)
+                {
+                    MessageBox.Show("Pilih akun dulu!", "Warning!");
+                }
+                else
+                {
+                    label6.Text = "Friend Recommendation " + comboBox1.SelectedItem.ToString();
+                    List<string> listteman = S.FriendRecomBFS(comboBox1.SelectedItem.ToString());
+                    foreach (string text in listteman)
+                    {
+                        listView1.Items.Add(text);
+                    }
+                    if (comboBox1.SelectedItem.ToString() != comboBox2.SelectedItem.ToString())
+                    {
+                        label5.Text = "Explore Friend " + comboBox1.SelectedItem.ToString() + " with " + comboBox2.SelectedItem.ToString();
+                        textBox3.Text = S.ExploreFriendsDFS(comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
                         textBox3.Visible = true;
                         label5.Visible = true;
                     }
