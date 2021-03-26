@@ -338,17 +338,17 @@ namespace WindowsFormsApp1
         //ExploreFriendsDFS
         public void DFS(string akunAsal, string akunTujuan, List<string> listKunjungan)
         {
-            
+
             listKunjungan.Add(akunAsal);
- 
+
             // Recur for all the vertices
             // adjacent to this vertex
             List<string> newList = MyFriend(akunAsal);
-            foreach(var n in newList)
+            foreach (var n in newList)
             {
                 if (!listKunjungan.Contains(n) && n != akunTujuan)
                 {
-                    DFS(n, akunTujuan,listKunjungan);
+                    DFS(n, akunTujuan, listKunjungan);
                 }
                 else if (n == akunTujuan)
                 {
@@ -356,21 +356,21 @@ namespace WindowsFormsApp1
                     break;
                 }
             }
-    
+
         }
 
-        
 
-        public void ExploreFriendsDFS(string akunAsal, string akunTujuan)
+
+        public string ExploreFriendsDFS(string akunAsal, string akunTujuan)
         {
             List<string> listFriend = new List<string>();
             List<string> listKunjungan = new List<string>();
-            string result = "";
-            if(akunAsal == akunTujuan)
+            if (akunAsal == akunTujuan)
             {
-                //return "Apakah " + akunTujuan + " berteman dengan dirinya sendiri?";
+                return "Apakah " + akunTujuan + " berteman dengan dirinya sendiri?";
             }
             GFG gg = new GFG();
+            string result = "";
             DFS(akunAsal, akunTujuan, listKunjungan);
 
             /*bool status = false;
@@ -434,14 +434,15 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    result += "Derajat pertemanan "+ this.degree + ". (";
+                    result += "Derajat pertemanan " + this.degree + ". (";
 
                 }
-                
+
                 Console.WriteLine(this.degree);
                 foreach (string text in this.ListExplore)
                 {
-                    if (text != akunTujuan) { 
+                    if (text != akunTujuan)
+                    {
                         Console.Write("{0} --- ", text);
                         result += text + " <---> ";
                     }
@@ -449,10 +450,13 @@ namespace WindowsFormsApp1
                 }
             }
             else
-            { 
+            {
+                //MEET ?
                 result += "Tidak ada jalur koneksi yang tersedia\nAnda harus memulai koneksi baru itu sendiri.";
                 Console.WriteLine("Tidak ada jalur koneksi yang tersedia\nAnda harus memulai koneksi baru itu sendiri.");
             }
+            listFriend.Clear();
+            return result;
         } 
     }
 }
