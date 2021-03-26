@@ -72,3 +72,19 @@ C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new 3\Tubes-2-STIMA-Fitu
 C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new 3\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
 C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new 3\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\ferdy\Documents\Tugas Semester 4\Stima\Tubes 2 new 3\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AutomaticGraphLayout.dll
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AutomaticGraphLayout.Drawing.dll
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Microsoft.Msagl.GraphViewerGdi.dll
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Microsoft.Msagl.WpfGraphControl.dll
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.page2.resources
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\Tubes-2-STIMA-Fitur-Friend-Recommendation\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

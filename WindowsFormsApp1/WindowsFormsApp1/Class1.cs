@@ -340,9 +340,6 @@ namespace WindowsFormsApp1
         {
 
             listKunjungan.Add(akunAsal);
-
-            // Recur for all the vertices
-            // adjacent to this vertex
             List<string> newList = MyFriend(akunAsal);
             foreach (var n in newList)
             {
@@ -373,32 +370,6 @@ namespace WindowsFormsApp1
             string result = "";
             DFS(akunAsal, akunTujuan, listKunjungan);
 
-            /*bool status = false;
-            
-            listFriend = MyFriend(akunAsal);
-            listFriend.Sort(gg);
-
-            if (listFriend.Contains(akunTujuan))
-            {
-                status = true;
-                listKunjungan.Add(akunTujuan);
-            }
-            listKunjungan.Add(akunAsal);
-            while (!listKunjungan.Contains(akunTujuan) && !status)
-            {
-                string akunSekarang = listFriend[0];
-                if (akunSekarang != akunTujuan)
-                {
-                    listKunjungan.Add(akunSekarang);
-                    listFriend.Clear();
-                    listFriend = MyFriend(akunSekarang);
-                    if (!listFriend[0].Any())
-                    {
-
-                    }
-                }
-                
-            }*/
             if (listKunjungan.Contains(akunTujuan))
             {
                 //Console.WriteLine("Ada");
@@ -411,9 +382,9 @@ namespace WindowsFormsApp1
                 }
                 listFriend = MyFriend(akhir);
                 listFriend.Sort(gg);
-                this.ListExplore.Add(akunTujuan);
+                //this.ListExplore.Add(akunTujuan);
 
-                while (listFriend[0] != awal)
+                while (!listFriend.Contains(awal))
                 {
                     string TambahGraf = listFriend[0];
                     this.ListExplore.Add(TambahGraf);
@@ -421,13 +392,13 @@ namespace WindowsFormsApp1
                     listFriend = MyFriend(TambahGraf);
                     listFriend.Sort(gg);
                 }
-                this.ListExplore.Add(akunAsal);
+                //this.ListExplore.Add(akunAsal);
                 this.ListExplore.Sort(gg);
                 if (string.Compare(akunAsal, akunTujuan) > 0)
                 {
                     this.ListExplore.Reverse();
                 }
-                this.degree = this.ListExplore.Count - 2;
+                this.degree = this.ListExplore.Count;
                 if (this.degree == 0)
                 {
                     result += " Sudah berteman.  ( ";
@@ -438,16 +409,18 @@ namespace WindowsFormsApp1
 
                 }
 
-                Console.WriteLine(this.degree);
+                result += akunAsal + " <---> ";
                 foreach (string text in this.ListExplore)
                 {
-                    if (text != akunTujuan)
+                    result += text + " <---> ";
+                    /*if (text != akunTujuan)
                     {
                         Console.Write("{0} --- ", text);
                         result += text + " <---> ";
                     }
-                    else { Console.Write("{0}\n", text); result += text + " )"; }
+                    else { Console.Write("{0}\n", text); result += text + " )"; }*/
                 }
+                result += akunTujuan + " )";
             }
             else
             {
