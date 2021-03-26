@@ -144,7 +144,15 @@ namespace WindowsFormsApp1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            comboBox2.Items.Clear();
+            StrategiAlgoritma S = new StrategiAlgoritma(openFileDialog1.FileName);
+            List<string> ListCombo = S.GetGraf();
+            foreach (string text in ListCombo)
+            {
+                if(text == comboBox1.SelectedItem.ToString()) { continue; }
+                //comboBox1.Items.Add(text);
+                comboBox2.Items.Add(text);
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

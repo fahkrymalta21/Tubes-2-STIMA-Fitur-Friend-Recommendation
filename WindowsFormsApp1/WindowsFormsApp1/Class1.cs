@@ -334,7 +334,7 @@ namespace WindowsFormsApp1
             return result;
         }
 
-        /*
+        
         //ExploreFriendsDFS
         public void DFS(string akunAsal, string akunTujuan, List<string> listKunjungan)
         {
@@ -348,7 +348,7 @@ namespace WindowsFormsApp1
             {
                 if (!listKunjungan.Contains(n) && n != akunTujuan)
                 {
-                    DFS(n, listKunjungan);
+                    DFS(n, akunTujuan,listKunjungan);
                 }
                 else if (n == akunTujuan)
                 {
@@ -365,9 +365,10 @@ namespace WindowsFormsApp1
         {
             List<string> listFriend = new List<string>();
             List<string> listKunjungan = new List<string>();
+            string result = "";
             if(akunAsal == akunTujuan)
             {
-                return "Apakah " + AkunTujuan + " berteman dengan dirinya sendiri?";
+                //return "Apakah " + akunTujuan + " berteman dengan dirinya sendiri?";
             }
             GFG gg = new GFG();
             DFS(akunAsal, akunTujuan, listKunjungan);
@@ -397,7 +398,7 @@ namespace WindowsFormsApp1
                     }
                 }
                 
-            }*
+            }*/
             if (listKunjungan.Contains(akunTujuan))
             {
                 //Console.WriteLine("Ada");
@@ -440,7 +441,7 @@ namespace WindowsFormsApp1
                 Console.WriteLine(this.degree);
                 foreach (string text in this.ListExplore)
                 {
-                    if (text != AkunTujuan) { 
+                    if (text != akunTujuan) { 
                         Console.Write("{0} --- ", text);
                         result += text + " <---> ";
                     }
@@ -448,10 +449,10 @@ namespace WindowsFormsApp1
                 }
             }
             else
-            { MEET?
+            { 
                 result += "Tidak ada jalur koneksi yang tersedia\nAnda harus memulai koneksi baru itu sendiri.";
                 Console.WriteLine("Tidak ada jalur koneksi yang tersedia\nAnda harus memulai koneksi baru itu sendiri.");
             }
-        } */
+        } 
     }
 }
